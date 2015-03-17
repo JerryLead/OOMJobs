@@ -1,0 +1,10 @@
+root@master:/opt/mahout-distribution-0.6# bin/mahout testclassifier -m /LijieXu/wikipediamodel \
+-d /LijieXu/wikipediainput
+
+bin/mahout wikipediaXMLSplitter -d /root/Wikipedia/enwiki-latest-pages-articles25.xml -o /user/xulijie/wikipedia/chunks -c 64
+
+bin/mahout wikipediaDataSetCreator -i /user/xulijie/wikipedia/chunks -o /user/xulijie/wikipediainput -c /opt/mahout-distribution-0.6/country.txt 
+
+bin/mahout trainclassifier -i /user/xulijie/wikipediainput -o /user/xulijie/wikipediamodel
+
+bin/mahout testclassifier -m /user/xulijie/wikipediamodel -d /user/xulijie/wikipediainput
